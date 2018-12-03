@@ -1,0 +1,23 @@
+container:
+    #build: .
+    image: udaysh/php_laravel
+    labels:
+        - "com.lowecloud.proxy=laravel.docker"
+    volumes:
+        - "./manifest/config/nginx.conf:/etc/nginx/nginx.conf:ro"
+        - "./manifest/config/x-debug.ini:/usr/local/etc/php/conf.d/x-debug.ini:ro"
+        - "./manifest/config/mcrypt.ini:/usr/local/etc/php/conf.d/mcrypt.ini:ro"
+        - "./manifest/config/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro"
+        - "./app:/app"
+    environment:
+        - APP_ENV=dev
+    env_file:
+        - "./manifest/dev.env"
+    links:
+        - db
+
+db:
+  image: udaysh/db_mariadb-10
+  env_file:
+        - "./manifest/dev.env"
+

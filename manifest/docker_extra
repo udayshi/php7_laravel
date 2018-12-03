@@ -1,0 +1,9 @@
+#ENV PATH=$PATH:/usr/local/node/bin/
+#Node Installation
+#RUN wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz && \
+#    tar xf node-v8.11.3-linux-x64.tar.xz && \
+#    rm -rf node-v8.11.3-linux-x64.tar.xz && \
+#    ln -sf node-v8.11.3-linux-x64 node
+#RUN npm i -g yarn
+#RUN apt-get install python3-pip python-pip -y
+#RUN pip3 install virtualenv  && pip install virtualenv

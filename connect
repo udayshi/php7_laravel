@@ -1,0 +1,9 @@
+#!/bin/bash
+PWD=`pwd`
+BASE_NAME=`basename $PWD`
+BASE_NAME=${BASE_NAME/./}
+BASE_NAME=${BASE_NAME/_/}
+CONTAINER_NAME=${BASE_NAME}_container_1
+
+docker-compose up -d
+docker exec -it $CONTAINER_NAME /bin/bash
